@@ -1,0 +1,690 @@
+body {
+    height: 800px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(330deg, rgba(22, 22, 41, 1) 65%, rgba(106, 207, 228, 1) 100%) no-repeat;
+    animation: gradient-change 1.5s infinite alternate ease-in-out;
+    position: relative;
+
+}
+
+body:after {
+    top: 0;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100vh;
+    background: white;
+    opacity: 0;
+    animation: lighting 4s linear infinite;
+}
+
+h1 {
+    position: absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2em;
+    letter-spacing: .2em;
+    display: block;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 5%;
+    padding: 10px;
+    color: #fff;
+    text-shadow: 0 0 20px #ff005b;
+    box-shadow: 0 0 20px #ff005b;
+
+}
+
+h1:after {
+    content: "Wait for ghost";
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 1;
+    color: #ff005b;
+    filter: blur(15px);
+}
+
+h1:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fe3a80;
+    z-index: -2;
+    opacity: .5;
+    filter: blur(40px);
+}
+
+/* .rain {
+    height: 100vh;
+    background: url(img/rain.png);
+    animation: rain .6s linear infinite;
+}
+
+
+.rain:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: lighting 4s linear infinite;
+    opacity: 0;
+
+}
+
+
+
+@keyframes rain {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 10% 100%;
+    }
+}
+
+
+
+@keyframes lighting {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0;
+    }
+
+    11% {
+        opacity: 1;
+    }
+
+    14% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    21% {
+        opacity: 1;
+    }
+
+    24% {
+        opacity: 0;
+    }
+
+    104% {
+        opacity: 0;
+    }
+} */
+
+.ghost {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 7%;
+    height: 90px;
+    box-sizing: border-box;
+    background: #4c5a7e;
+    opacity: 0.5;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    left: 63%;
+    top: 165px;
+    animation: floaty 2s infinite, ghostly 10s linear 5s infinite;
+    opacity: 0;
+}
+
+
+
+
+
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+
+.eyes-ghost,
+.eyes-ghost:after {
+
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+    top: 25%;
+    left: 20%;
+}
+
+.eyes-ghost:after {
+    content: "";
+    top: 0;
+    left: 100%;
+    margin-left: 3px;
+}
+
+.mouth2 {
+    position: absolute;
+    background: black;
+    width: 50px;
+    height: 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    top: 60%;
+    left: 15%;
+}
+
+.feet {
+    position: absolute;
+    display: flex;
+    bottom: -15px;
+    width: 100%;
+
+}
+
+.feet>*,
+.feet::before,
+.feet::after {
+    content: ' ';
+    width: 25px;
+    height: 25px;
+    background: #d2f2cf;
+    border-radius: 50%;
+    background: #4c5a7e;
+}
+
+.lamp {
+    /* display: block; */
+    position: absolute;
+    width: 60px;
+    top: 20px;
+    margin: 0;
+    left: 20%;
+    border-top: 30px solid #222222;
+    border-bottom: 30px solid transparent;
+    border-radius: 50%;
+    z-index: 2;
+    animation: swing 1.5s infinite alternate ease-in-out;
+    transform-origin: 30px -20px;
+}
+
+.lamp:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: #222222;
+    top: -50px;
+    left: 30px;
+}
+
+.lamp:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    top: -270px;
+    left: -150px;
+    border-top: 250px solid transparent;
+    border-bottom: 280px solid rgba(255, 255, 255, .4);
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    z-index: 1;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(-20deg);
+    }
+
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes gradient-change {
+
+    0% {
+        background: linear-gradient(330deg, rgba(22, 22, 41, 1) 65%, rgba(106, 207, 228, 1) 100%);
+    }
+
+    100% {
+        background: linear-gradient(330deg, rgba(22, 22, 41, 1) 78%, rgba(106, 207, 228, 1) 100%);
+    }
+
+}
+
+
+/* .window::after {
+    content: "";
+    width: 170px;
+    height: 200px;
+    position: absolute;
+    background: url(img/35.jpg);
+    background-size: cover;
+    z-index: -3;
+} */
+
+.window {
+    position: absolute;
+    background: url(img/35.jpg);
+    background-size: cover;
+    width: 170px;
+    height: 200px;
+    margin-bottom: ;
+    left: 80%;
+    top: 90px;
+    border: 10px solid #301c1c;
+    background: url(img/rain.png);
+    animation: rain .9s linear infinite;
+}
+
+
+@keyframes rain {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 10% 100%;
+    }
+}
+
+.frame {
+    position: absolute;
+    width: 170px;
+    top: 60px;
+    border-bottom: 10px solid #301c1c;
+}
+
+.frame:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 150px;
+    left: 50%;
+    border-left: 10px solid #301c1c;
+
+}
+
+.glass {
+
+    width: 170px;
+    height: 200px;
+    position: absolute;
+    background: url(img/35.jpg);
+    background-size: cover;
+    z-index: -5;
+}
+
+.head {
+    position: absolute;
+    background-color: #c2bca9;
+    width: 12%;
+    height: 70%;
+    border-radius: 50%;
+    left: 41%;
+    top: 29%;
+    z-index: 1;
+}
+
+.eye1,
+.eye2 {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    background-color: white;
+    border-radius: 50%;
+    top: 25%;
+    left: 12%;
+    z-index: 1;
+}
+
+.eye2 {
+    left: 57%;
+}
+
+
+.circle,
+.circle2 {
+
+    position: absolute;
+    width: 13%;
+    height: 13%;
+    border-radius: 50%;
+    background: rgb(0, 0, 0);
+    top: 33%;
+    left: 20%;
+    z-index: 2;
+    animation: movement 6s ease-in-out infinite;
+}
+
+.circle2 {
+    left: 65%;
+}
+
+.mouth {
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    background-color: rgb(73, 26, 26);
+    border-radius: 50% 50%;
+    top: 65%;
+    left: 25%;
+    animation: openMouth 10s ease-in-out 7s infinite reverse;
+}
+
+
+
+
+.man {
+    position: absolute;
+    animation-name: shake;
+    animation-duration: 10s;
+    animation-delay: 8s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    width: 50%;
+    height: 15%;
+    left: 25%;
+
+
+}
+
+.neck {
+    position: absolute;
+    width: 3%;
+    height: 10%;
+    background-color: #c2bca9;
+    clip-path: clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    left: 46%;
+    top: 94%;
+}
+
+.body {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    background-color: rgb(59, 80, 80);
+    left: 43%;
+    top: 100%;
+    border-radius: 30% 30% 0 0;
+    z-index: 2;
+}
+
+.hands {
+    position: absolute;
+    width: 3%;
+    height: 90%;
+    background-color: rgb(59, 80, 80);
+    left: 43%;
+    top: 100%;
+    border-radius: 40% 0 30% 30%;
+    transform: rotate(30deg);
+    animation-delay: 7s;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-name: handsup;
+    transform-origin: 70% 25%;
+}
+
+.hands2 {
+    content: "";
+    position: absolute;
+    width: 3%;
+    height: 90%;
+    background-color: rgb(59, 80, 80);
+    left: 50%;
+    top: 100%;
+    border-radius: 0 40% 30% 30%;
+    transform: rotate(-30deg);
+    animation-delay: 7s;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-name: handsup2;
+    transform-origin: 60% 20%;
+}
+
+.legs {
+    position: absolute;
+    width: 17%;
+    height: 90%;
+    left: 39%;
+    top: 180%;
+    clip-path: polygon(78% 0, 91% 99%, 52% 68%, 11% 95%, 21% 48%, 31% 0);
+    background-color: rgb(73, 26, 26);
+    z-index: -4;
+}
+
+@keyframes openMouth {
+    from {
+        height: 10%;
+    }
+
+    to {
+        height: 30%;
+    }
+}
+
+@keyframes handsup {
+
+    0%,
+    1%,
+    30%,
+    100% {
+        transform: rotate(30deg);
+
+    }
+
+    2%,
+    20% {
+        transform: rotate(130deg);
+
+    }
+}
+
+@keyframes handsup2 {
+
+    0%,
+    1%,
+    30%,
+    100% {
+        transform: rotate(-30deg);
+
+    }
+
+    2%,
+    20% {
+        transform: rotate(-130deg);
+    }
+}
+
+@keyframes movement {
+
+    0%,
+    10% {
+
+        transform: translateX(0);
+    }
+
+    20% {
+
+        transform: translateX(-50%);
+    }
+
+    30%,
+    80% {
+
+        transform: translateX(0);
+    }
+
+    90% {
+
+        transform: translateX(50%);
+    }
+
+    100% {
+
+        transform: translateX(0);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    2%,
+    4%,
+    6%,
+    8% {
+        transform: translateY(-5%);
+    }
+
+
+    1%,
+    3%,
+    5%,
+    7%,
+    9% {
+        transform: translateY(5%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes floaty {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes ghostly {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes zoomy {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.8);
+    }
+}
+
+
+@keyframes lighting {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0;
+    }
+
+    11% {
+        opacity: 1;
+    }
+
+    14% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    21% {
+        opacity: 1;
+    }
+
+    24% {
+        opacity: 0;
+    }
+
+    104% {
+        opacity: 0;
+    }
+}
+
+@media screen and (min-width: 680px) and (max-width: 1024px) {
+
+    body {
+        height: 100vh;
+    }
+
+    .man {
+        height: 10%;
+        left: 10%;
+    }
+
+    .ghost {
+        left: 55%;
+        width: 10%;
+    }
+
+    .window {
+        left: 69%;
+    }
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 639px) {
+
+    body {
+        height: 100vh;
+    }
+
+    .man {
+        height: 10%;
+        width: 70%;
+        left: 0;
+    }
+
+    .ghost {
+        left: 50%;
+        width: 19%;
+    }
+
+    .window {
+        left: 75%;
+
+    }
+
+    .lamp {
+        left: 0;
+    }
+
+    h1 {
+        text-align: center;
+    }
+}
